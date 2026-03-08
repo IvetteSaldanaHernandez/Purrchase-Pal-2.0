@@ -54,13 +54,13 @@ const [newGroupName, setNewGroupName] = useState(""); // input for new group
   return (
     <div className="profile-page">
       {/* Top navigation banner matching CreatePurchase style */}
-      <div className="top-nav">
+      {/* <div className="top-nav">
         <div className="nav-left">
           <img src={logo} className="nav-logo" alt="Logo" />
           <h2>Edit Profile</h2>
         </div>
-        {/* Right profile icon removed */}
-      </div>
+        Right profile icon removed
+      </div> */}
 
       {/* User info */}
       <div className="user-info">

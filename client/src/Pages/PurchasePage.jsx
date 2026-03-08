@@ -110,13 +110,13 @@ export default function CreatePurchase() {
               required
             >
               <option value="">Select a category</option>
-              <option value="Electronics">Shoppinh</option>
-              <option value="Food">Groceries</option>
-              <option value="Clothing">Food</option>
-              <option value="Beauty">Personal</option>
-              <option value="School">Entertainment</option>
-              <option value="Home">Travel</option>
-              <option value="Pets">Education</option>
+              <option value="Shopping">Shopping</option>
+              <option value="Groceries">Groceries</option>
+              <option value="Food">Food</option>
+              <option value="Personal">Personal</option>
+              <option value="Entertainment">Entertainment</option>
+              <option value="Travel">Travel</option>
+              <option value="Education">Education</option>
               <option value="Other">Other</option>
             </select>
           </div>
