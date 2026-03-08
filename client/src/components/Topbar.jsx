@@ -9,7 +9,7 @@ export default function Topbar({ user }) {
     <header className="topbar">
       <Link to="/home" className="topbar-left">
         <img src={logo} alt="PurrchasePal logo" className="topbar-logo" />
-        <span className="topbar-title">PurchasePal</span>
+        <span className="topbar-title">PurrchasePal</span>
       </Link>
 
       <Link to="/profile" className="topbar-profile-link">
