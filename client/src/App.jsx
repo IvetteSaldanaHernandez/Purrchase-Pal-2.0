@@ -3,10 +3,10 @@ import "./App.css"
 import Topbar from "./components/Topbar";
 import Bottombar from "./components/Bottombar";
 import Home from "./Pages/HomePage";
-import Login from "./pages/LoginPage";
+import Login from "./Pages/LoginPage";
 import Purchase from "./Pages/PurchasePage";
-import Leaderboard from "./pages/LeaderboardPage";
-import Profile from "./pages/ProfilePage";
+import Leaderboard from "./Pages/LeaderboardPage";
+import Profile from "./Pages/ProfilePage";
 
 function App() {
   return (
