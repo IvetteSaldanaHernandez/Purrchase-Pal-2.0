@@ -46,6 +46,7 @@ export default function HomePage({ user, purchases = [], onVote }) {
                 key={purchase.id || purchase._id}
                 purchase={purchase}
                 onVote={onVote}
+                user={user}
               />
             ))
           )}
@@ -55,8 +56,9 @@ export default function HomePage({ user, purchases = [], onVote }) {
   )
 }
 
-function PurchaseCard({ purchase, onVote }) {
+function PurchaseCard({ purchase, onVote, user }) {
   const totalVotes = (purchase.smart_votes || 0) + (purchase.wasteful_votes || 0)
+  const displayName = purchase.user_id === user?.id ? "You" : purchase.user_id
 
   return (
     <div className="purchase-card">
@@ -68,7 +70,7 @@ function PurchaseCard({ purchase, onVote }) {
             className="purchase-avatar"
           />
           <div>
-            <h3>{purchase.user_id || "Unknown User"}</h3>
+            <h3>{displayName}</h3>
             <p>{purchase.category || "General"}</p>
           </div>
         </div>

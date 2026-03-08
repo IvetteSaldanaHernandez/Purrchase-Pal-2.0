@@ -1,16 +1,23 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { supabase } from "../lib/supabase"
-
 import "./LoginPage.css"
 
-export default function LoginPage() {
+export default function LoginPage({ user }) {
   const navigate = useNavigate()
 
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [fullName, setFullName] = useState("")
+  const [username, setUsername] = useState("")
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
+
+  useEffect(() => {
+    if (user) {
+      navigate("/home")
+    }
+  }, [user, navigate])
 
   const handleLogin = async () => {
     setLoading(true)
@@ -38,6 +45,12 @@ export default function LoginPage() {
     const { error } = await supabase.auth.signUp({
       email,
       password,
+      // options: {
+      //   data: {
+      //     full_name: fullName,
+      //     username: username,
+      //   },
+      // },
     })
 
     setLoading(false)
@@ -52,7 +65,6 @@ export default function LoginPage() {
 
   return (
     <div className="login-page">
-
       <div className="img1"></div>
       <div className="img2"></div>
       <div className="img3"></div>
@@ -64,6 +76,20 @@ export default function LoginPage() {
       <div className="login-card">
         <div className="img"></div>
         <h1>Login</h1>
+
+        <input
+          type="text"
+          placeholder="Name"
+          value={fullName}
+          onChange={(e) => setFullName(e.target.value)}
+        />
+
+        <input
+          type="text"
+          placeholder="Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
 
         <input
           type="email"
@@ -90,7 +116,6 @@ export default function LoginPage() {
         <button className="button2" onClick={handleSignUp} disabled={loading}>
           Sign Up
         </button>
-
       </div>
     </div>
   )

@@ -2,7 +2,9 @@ import { Link } from "react-router-dom"
 import logo from "../assets/catonlylogo.webp"
 import defaultUserIcon from "../assets/defaultUserIcon.jpg"
 
-export default function Topbar() {
+export default function Topbar({ user }) {
+  const avatar = user?.user_metadata?.avatar_url || defaultUserIcon
+
   return (
     <header className="topbar">
       <Link to="/home" className="topbar-left">
@@ -12,7 +14,7 @@ export default function Topbar() {
 
       <Link to="/profile" className="topbar-profile-link">
         <img
-          src={defaultUserIcon}
+          src={avatar}
           alt="Profile"
           className="topbar-profile"
         />
