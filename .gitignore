@@ -3,4 +3,5 @@ client/.env
 .env
 
 node_modules
-.venv/
+.venv
+venv/
