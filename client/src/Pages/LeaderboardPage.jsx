@@ -9,25 +9,7 @@ export default function LeaderboardPage() {
   return (
     <div className="leaderboard-page">
 
-      <div className="top-nav">
-        <div className="nav-left">
-          <img src={logo} className="nav-logo" alt="logo" />
-        </div>
 
-        <h2>PurrchasePal</h2>
-
-        <img
-          src={defaultUserIcon}
-          alt="Profile"
-          className="nav-profile-icon"
-          onClick={() => navigate("/profilepage")}
-        />
-      </div>
-
-      <div className="leaderboard">
-        <div className="leaderboard-banner">
-          <h2>Savings Leaderboard</h2>
-        </div>
 
         <div className="podium">
 
@@ -116,13 +98,8 @@ export default function LeaderboardPage() {
         </div>
       </div>
 
-      <div className="bottom-nav">
-        <button onClick={() => navigate("/home")}>⾕</button>
-        <button onClick={() => navigate("/leaderboard")}>↗</button>
-        <button onClick={() => navigate("/purchase")}>＋</button>
-      </div>
 
-    </div>
+    
   )
 }
 
