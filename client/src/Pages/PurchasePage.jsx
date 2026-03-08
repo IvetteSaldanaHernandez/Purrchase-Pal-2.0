@@ -1,7 +1,5 @@
 import { useRef, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import logo from "../assets/catonlylogo.webp"
-import defaultUserIcon from "../assets/defaultUserIcon.jpg"
 import "./PurchasePage.css"
 
 export default function CreatePurchase() {
@@ -61,20 +59,6 @@ export default function CreatePurchase() {
 
   return (
     <div className="create-page">
-        <div className="top-nav">
-            <div className="nav-left">
-                <img src={logo} className="nav-logo" />
-                <h2>PurrchasePal</h2>
-            </div>
-        
-            <img
-                src={defaultUserIcon}
-                alt="Profile"
-                className="nav-profile-icon"
-                onClick={() => navigate("/profilepage")}
-            />
-        </div>
-
       <div className="create-card">
         <div className="create-header">
           <h1>Add Purchase for Review</h1>
@@ -183,14 +167,6 @@ export default function CreatePurchase() {
             {isSubmitting ? "Submitting..." : "Submit for Review"}
           </button>
         </form>
-      </div>
-      <div className="bottom-nav">
-        <div className="side-buttons">
-          <button onClick={() => navigate("/home")}>⾕</button>
-          <button>↗</button>
-        </div>
-        <button className="add-button" onClick={() => navigate("/purchase")}>＋</button>
-        <div className="side-buttons" style={{ width: 80 }}></div> {/* optional spacer */}
       </div>
     </div>
   )

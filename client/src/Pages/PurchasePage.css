@@ -1,50 +1,8 @@
-body {
-    margin: 0;
-    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  .create-page {
+  min-height: 100vh;
+  padding-bottom: 120px; /* space for bottom nav */
   }
-  
-  .img {
-    width: 300px;
-    height: 300px;
-    background-image: url('/src/assets/logo.webp');
-    background-position: center;
-    background-size: contain;
-    justify-content: center;
-  }
-  
-  @media (max-width: 768px) {
-    .feed-page {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start; 
-    padding-bottom: 90px; /* space for bottom nav */
-  }
-}
-  
-  .feed-content {
-    max-width: 900px;
-    margin: 0 auto;       /* center horizontally */
-    padding: 0 20px;      /* remove top padding */
-  } 
-  
-    html, body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    overflow-x: hidden;
-    }
-  
-  .add-button {
-    font-size: 32px;
-    background: rosybrown;
-    color: white;
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-  }
-  
+
   .create-card {
     max-width: 900px;
     margin: 12px auto 0;
