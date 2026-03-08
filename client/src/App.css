@@ -9,7 +9,7 @@ a {
 }
 
 body {
-  background-color: #f5efe6;
+  background-color: #f6f4f0;
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
   color: #2f3441;
@@ -29,7 +29,7 @@ body {
 /* top bar */
 .topbar {
   height: 88px;
-  background: #efe2cc;
+  background: #ffefdc;
   border-bottom: 4px solid #b88e90;
   display: flex;
   align-items: center;
@@ -71,7 +71,7 @@ body {
   left: 0;
   width: 100vw;
   height: 86px;
-  background: #efe2cc;
+  background: #ffefdc;
   border-top: 4px solid #b88e90;
   display: flex;
   align-items: center;
