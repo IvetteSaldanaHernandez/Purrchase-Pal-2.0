@@ -5,17 +5,17 @@ import Bottombar from "./components/Bottombar";
 import Home from "./pages/HomePage";
 import Login from "./pages/LoginPage";
 import Purchase from "./pages/PurchasePage";
-// import Leaderboard from "./pages/LeaderboardPage";
+import Leaderboard from "./pages/LeaderboardPage";
 
 function App() {
   return (
     <Router>
       <Topbar />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/purchase" element={<Purchase />} />
-        {/* <Route path="/leaderboard" element={<Leaderboard />} /> */}
+        <Route path="/leaderboard" element={<Leaderboard />} />
       </Routes>
       <Bottombar />
     </Router>
