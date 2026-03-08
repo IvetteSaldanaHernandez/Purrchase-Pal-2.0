@@ -6,6 +6,160 @@ import "./LoginPage.css"
 export default function LoginPage({ user }) {
   const navigate = useNavigate()
 
+  const [isSignUp, setIsSignUp] = useState(false)
+
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [fullName, setFullName] = useState("")
+  const [username, setUsername] = useState("")
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState("")
+
+  useEffect(() => {
+    if (user) {
+      navigate("/home")
+    }
+  }, [user, navigate])
+
+  const handleLogin = async () => {
+    setLoading(true)
+    setError("")
+
+    const { error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    })
+
+    setLoading(false)
+
+    if (error) {
+      setError(error.message)
+      return
+    }
+
+    navigate("/home")
+  }
+
+  const handleSignUp = async () => {
+    if (!isSignUp) {
+      setIsSignUp(true)
+      return
+    }
+
+    setLoading(true)
+    setError("")
+
+    const { error } = await supabase.auth.signUp({
+      email,
+      password,
+      options: {
+        data: {
+          full_name: fullName,
+          username: username,
+        },
+      },
+    })
+
+    setLoading(false)
+
+    if (error) {
+      setError(error.message)
+      return
+    }
+
+    alert("Account created. Check email for confirmation.")
+  }
+
+  return (
+    <div className="login-page">
+      <div className="img1"></div>
+      <div className="img2"></div>
+      <div className="img3"></div>
+      <div className="img44"></div>
+      <div className="img4"></div>
+      <div className="img5"></div>
+      <div className="img6"></div>
+
+      <div className="login-card">
+        <div className="img"></div>
+        <h1>{isSignUp ? "Sign Up" : "Login"}</h1>
+
+        {isSignUp && (
+          <>
+            <input
+              type="text"
+              placeholder="Name"
+              value={fullName}
+              onChange={(e) => setFullName(e.target.value)}
+            />
+
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </>
+        )}
+
+        <input
+          type="text"
+          placeholder="Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          required
+        />
+
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+
+        {error && <p className="login-error">{error}</p>}
+
+        {!isSignUp ? (
+          <>
+            <button className="button1" onClick={handleLogin} disabled={loading}>
+              {loading ? "Loading..." : "Login"}
+            </button>
+
+            <button className="button2" onClick={handleSignUp} disabled={loading}>
+              Sign Up
+            </button>
+          </>
+        ) : (
+          <>
+            <button className="button1" onClick={handleSignUp} disabled={loading}>
+              {loading ? "Loading..." : "Create Account"}
+            </button>
+
+            <button
+              className="button2"
+              onClick={() => setIsSignUp(false)}
+              disabled={loading}
+            >
+              Back to Login
+            </button>
+          </>
+        )}
+      </div>
+    </div>
+  )
+}
+
+
+/*import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
+import { supabase } from "../lib/supabase"
+import "./LoginPage.css"
+
+export default function LoginPage({ user }) {
+  const navigate = useNavigate()
+
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [fullName, setFullName] = useState("")
@@ -120,3 +274,4 @@ export default function LoginPage({ user }) {
     </div>
   )
 }
+*/
