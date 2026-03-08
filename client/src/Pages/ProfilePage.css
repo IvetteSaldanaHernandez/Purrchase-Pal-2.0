@@ -10,7 +10,7 @@ body {
 
 /* Page background */
 .profile-page {
-  background-color: #FFEFDB;
+  background-color: #f6f4f0;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
