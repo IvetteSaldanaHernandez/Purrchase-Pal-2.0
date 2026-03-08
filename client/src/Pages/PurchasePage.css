@@ -1,0 +1,192 @@
+body {
+    margin: 0;
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  }
+  
+  .img {
+    width: 300px;
+    height: 300px;
+    background-image: url('/src/assets/logo.webp');
+    background-position: center;
+    background-size: contain;
+    justify-content: center;
+  }
+  
+  @media (max-width: 768px) {
+    .feed-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; 
+    padding-bottom: 90px; /* space for bottom nav */
+  }
+}
+  
+  .feed-content {
+    max-width: 900px;
+    margin: 0 auto;       /* center horizontally */
+    padding: 0 20px;      /* remove top padding */
+  } 
+  
+    html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    }
+  
+  .add-button {
+    font-size: 32px;
+    background: rosybrown;
+    color: white;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+  }
+  
+  .create-card {
+    max-width: 900px;
+    margin: 12px auto 0;
+    background: #f9f4ec;
+    border: 1px solid #d8d3cb;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  
+  .create-header {
+    background: #f2eef8;
+    padding: 28px 24px 22px;
+    border-bottom: 1px solid #ddd6ce;
+  }
+  
+  .create-form {
+    padding: 24px;
+  }
+  
+  .form-group {
+    margin-bottom: 24px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #374151;
+  }
+  
+  .input-with-icon,
+  .textarea-with-icon {
+    position: relative;
+  }
+  
+  .input-with-icon input,
+  .create-form select,
+  .textarea-with-icon textarea {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .create-form select {
+    padding: 14px 16px;
+    border: 1px solid #c8cdd4;
+    border-radius: 14px;
+    background: #fff;
+    font-size: 16px;
+    color: #111827;
+  }
+  
+  .input-with-icon input {
+    padding: 14px 16px 14px 44px;
+    border: 1px solid #c8cdd4;
+    border-radius: 14px;
+    background: #fff;
+    font-size: 16px;
+    color: #111827;
+  }
+  
+  .textarea-with-icon textarea {
+    padding: 16px 16px 16px 44px;
+    border: 1px solid #c8cdd4;
+    border-radius: 14px;
+    background: #fff;
+    font-size: 16px;
+    color: #111827;
+    resize: vertical;
+    min-height: 140px;
+    font-family: inherit;
+  }
+  
+  .input-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+    pointer-events: none;
+  }
+  
+  .textarea-icon {
+    top: 18px;
+    transform: none;
+  }
+  
+  .helper-text {
+    margin-top: 12px;
+    color: #667085;
+    font-size: 14px;
+  }
+  
+  .hidden-file-input {
+    display: none;
+  }
+  
+  .upload-box {
+    border: 2px dashed #cdd5df;
+    border-radius: 16px;
+    background: #fafafa;
+    min-height: 170px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #667085;
+    text-align: center;
+    cursor: pointer;
+    padding: 20px;
+  }
+  
+  .upload-icon {
+    font-size: 42px;
+    margin-bottom: 10px;
+  }
+  
+  .upload-main,
+  .upload-sub,
+  .upload-file-name {
+    margin: 0;
+  }
+  
+  .upload-sub {
+    margin-top: 6px;
+    font-size: 14px;
+  }
+  
+  .upload-file-name {
+    margin-top: 10px;
+    color: rosybrown;
+    font-weight: 600;
+  }
+  
+  .submit-review-btn {
+    width: 100%;
+    border: none;
+    border-radius: 14px;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 700;
+    background: #c9ced6;
+    color: white;
+    cursor: pointer;
+  }
