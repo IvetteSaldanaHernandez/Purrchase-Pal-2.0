@@ -1,4 +1,5 @@
 🐾 Purrchase Pal
+
 Purrchase Pal is a social money management platform where friends compete to save money by collectively judging each other’s purchases.
 Instead of budgeting alone, users rely on peer accountability + AI insights to make smarter financial decisions.
 🧠 The Idea
@@ -104,3 +105,4 @@ Meme reactions for bad purchases
 
 
 “Cat approval rating” for purchases
+
