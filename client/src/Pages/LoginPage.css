@@ -23,6 +23,64 @@
   left:20px;
 }
 
+.img2{
+  width:80px;
+  height:80px;
+  background-image: url('/src/assets/spot22.webp');
+  position:absolute;
+  top:20px;
+  right:50px;
+  transform: rotate(-25deg);
+}
+
+.img3{
+  width:70px;
+  height:70px;
+  background-image: url('/src/assets/spot33.webp');
+  position:absolute;
+  bottom:48px;
+  left:20px;
+  transform: rotate(-55deg);
+}
+
+.img4{
+  width:80px;
+  height:80px;
+  background-image: url('/src/assets/spot44.webp');
+  position:absolute;
+  bottom:50px;
+  right:100px;
+}
+
+.img44{
+  width:80px;
+  height:80px;
+  background-image: url('/src/assets/spot44.webp');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position:absolute;
+  top:70px;
+  right:150px;
+}
+
+.img5{
+  width:70px;
+  height:70px;
+  background-image: url('/src/assets/spot55.webp');
+  position:absolute;
+  top:420px;
+  left:15px;
+}
+
+.img6{
+  width:75px;
+  height:75px;
+  background-image: url('/src/assets/spot66.webp');
+  position:absolute;
+  top:400px;
+  right:30px;
+}
 
 .login-page {
   background-color: #FFEFDB;
