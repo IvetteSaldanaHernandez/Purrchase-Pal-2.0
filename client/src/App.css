@@ -65,7 +65,7 @@ body {
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   height: 86px;
   background: #efe2cc;
   border-top: 4px solid #b88e90;

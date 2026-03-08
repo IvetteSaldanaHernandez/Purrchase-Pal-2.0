@@ -2,6 +2,7 @@ import { useMemo, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import logo from "../assets/catonlylogo.webp"
 import defaultUserIcon from "../assets/defaultUserIcon.jpg"
+import "./HomePage.css"
 
 export default function HomePage({ user, purchases = [], onVote }) {
   const [activeTab, setActiveTab] = useState("all")
@@ -14,7 +15,7 @@ export default function HomePage({ user, purchases = [], onVote }) {
 
   return (
     <div className="feed-page">
-      {/* HEADER */}
+      {/* HEADER
       <div className="top-nav">
         <div className="nav-left">
           <img src={logo} className="nav-logo" />
@@ -27,7 +28,7 @@ export default function HomePage({ user, purchases = [], onVote }) {
           className="nav-profile-icon"
           onClick={() => navigate("/profilepage")}
         />
-      </div>
+      </div> */}
 
       {/* FEED CONTENT */}
       <div className="feed-content">
@@ -66,11 +67,11 @@ export default function HomePage({ user, purchases = [], onVote }) {
       </div>
 
       {/* BOTTOM NAV */}
-      <div className="bottom-nav">
+      {/* <div className="bottom-nav">
         <button onClick={() => navigate("/home")}>⾕</button>
         <button onClick={() => navigate("/leaderboard")}>↗</button>
         <button onClick={() => navigate("/purchase")}>＋</button>
-      </div>
+      </div> */}
     </div>
   )
 }
