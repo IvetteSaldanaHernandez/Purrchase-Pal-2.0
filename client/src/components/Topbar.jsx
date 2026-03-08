@@ -6,11 +6,11 @@ export default function Topbar() {
   return (
     <header className="topbar">
       <Link className="topbar-left">
-        <img src={logo} alt="PurchasePal logo" className="topbar-logo" />
+        <img src={logo} alt="PurrchasePal logo" className="topbar-logo" />
         <span className="topbar-title">PurchasePal</span>
       </Link>
 
-      <Link to="/profile" className="topbar-profile-link">
+      <Link to="/Profile" className="topbar-profile-link">
         <img
           src={defaultUserIcon}
           alt="Profile"
