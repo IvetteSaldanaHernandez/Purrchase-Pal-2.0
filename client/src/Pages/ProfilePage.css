@@ -1,0 +1,237 @@
+/* frontend/src/Pages/ProfilePage.css */
+
+body {
+  margin: 0;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+/* Page background */
+.profile-page {
+  background-color: #FFEFDB;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Header bar */
+
+.profile-page .top-nav {
+  width: 100%;                    /* full width */
+  height: 70px;
+  background-color: #FFEFDB;
+  border-bottom: 3px solid rosybrown; /* full-width bottom line */
+  display: flex;
+  align-items: center;
+  justify-content: center;        /* centers the header text */
+  position: relative;             /* for absolute logo positioning */
+  padding: 0 20px;
+  box-sizing: border-box;
+  margin-bottom: 30px;            /* space between header and profile info */
+}
+
+
+/* Logo positioned left */
+.top-nav .nav-logo {
+  position: absolute;
+  top: 5px;
+  left: 20px;
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Centered header text */
+.top-nav h2 {
+  font-size: 24px;
+  color: rosybrown;
+  margin: 0;
+  text-align: center;
+}
+
+/* User info section */
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.user-icon {
+  width: 100px;
+  height: 100px;
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+  background-color: #fff;
+  margin-bottom: 10px;
+}
+
+.user-info h1 {
+  font-size: 28px;
+  color: rosybrown;
+  margin: 5px 0;
+}
+
+.user-info .username {
+  font-size: 16px;
+  color: #666;
+  margin: 2px 0;
+}
+
+.user-info .points {
+  font-size: 20px;
+  color: #333;
+  margin: 2px 0;
+}
+
+/* Edit inputs section */
+.edit-section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.edit-section label {
+  font-weight: bold;
+}
+
+.edit-section input {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.button1 {
+  padding: 10px;
+  background-color: rosybrown;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* Join group button */
+.button2 {
+  padding: 12px;
+  background-color: #5c4033;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.join-group-section {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 30px;
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 360px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+.modal-content h3 {
+  margin-top: 0;
+  color: #5c4033;
+}
+
+/* close button */
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  border: none;
+  background: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* modal buttons */
+.modal-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.modal-buttons button {
+  padding: 10px;
+  background-color: rosybrown;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* join code input section */
+.join-code-section {
+  display: flex;
+  gap: 10px;
+}
+
+.join-code-section input {
+  flex: 1;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.join-code-section button {
+  background-color: #5c4033;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+/* Optional bottom navigation */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  justify-content: space-around;
+  background-color: white;
+  border-top: 1px solid #ccc;
+  padding: 10px 0;
+}
+
+.bottom-nav button {
+  font-size: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
