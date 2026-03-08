@@ -57,43 +57,43 @@ export default function LeaderboardPage() {
           <div className="ranking-row">
             <span>4</span>
             <span>Ivette</span>
-            <span>$680</span>
+            <span>$670</span>
           </div>
 
           <div className="ranking-row">
             <span>5</span>
             <span>Maya</span>
-            <span>$680</span>
+            <span>$640</span>
           </div>
 
           <div className="ranking-row">
             <span>6</span>
             <span>Lien</span>
-            <span>$680</span>
+            <span>$580</span>
           </div>
 
           <div className="ranking-row">
             <span>7</span>
             <span>Yusra</span>
-            <span>$680</span>
+            <span>$440</span>
           </div>
 
           <div className="ranking-row">
             <span>8</span>
             <span>Tiffany</span>
-            <span>$680</span>
+            <span>$380</span>
           </div>
 
           <div className="ranking-row">
             <span>9</span>
-            <span></span>
-            <span>$680</span>
+            <span>Lina</span>
+            <span>$250</span>
           </div>
 
           <div className="ranking-row">
             <span>10</span>
             <span>Yusra</span>
-            <span>$680</span>
+            <span>$200</span>
           </div>
         </div>
       </div>
