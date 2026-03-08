@@ -2,10 +2,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css"
 import Topbar from "./components/Topbar";
 import Bottombar from "./components/Bottombar";
-import Home from "./pages/HomePage";
-import Login from "./pages/LoginPage";
-import Purchase from "./pages/PurchasePage";
-import Leaderboard from "./pages/LeaderboardPage";
+import Home from "./Pages/HomePage";
+import Login from "./Pages/LoginPage";
+import Purchase from "./Pages/PurchasePage";
+import Leaderboard from "./Pages/LeaderboardPage";
 
 function App() {
   return (
