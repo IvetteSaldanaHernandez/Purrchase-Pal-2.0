@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import { createPurchase } from "../lib/api"
 import "./PurchasePage.css"
 
-export default function CreatePurchase({ user, onPurchaseCreated }) {
+export default function CreatePurchase({ user, appUser, onPurchaseCreated }) {
   const navigate = useNavigate()
   const fileInputRef = useRef(null)
 
@@ -50,9 +50,14 @@ export default function CreatePurchase({ user, onPurchaseCreated }) {
         alert("You must be logged in.")
         return
       }
+      if (!appUser?.group_id) {
+        alert("Join or create a group before posting purchases.")
+        return
+      }
 
       const payload = {
         user_id: user.id,
+        group_id: appUser.group_id,
         title: formData.title,
         amount: Number(formData.amount),
         category: formData.category,

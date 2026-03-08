@@ -4,8 +4,7 @@ import logo from "../assets/catonlylogo.webp"
 import defaultUserIcon from "../assets/defaultUserIcon.jpg"
 import "./HomePage.css"
 
-export default function HomePage({ user, purchases = [], onVote }) {
-  const [activeTab, setActiveTab] = useState("all")
+export default function HomePage({ user, appUser, purchases = [], onVote }) {  const [activeTab, setActiveTab] = useState("all")
   const navigate = useNavigate()
 
   const filteredPurchases = useMemo(() => {
@@ -14,6 +13,19 @@ export default function HomePage({ user, purchases = [], onVote }) {
       (purchase) => (purchase.smart_votes || 0) + (purchase.wasteful_votes || 0) === 0
     )
   }, [activeTab, purchases])
+
+  if (!appUser?.group_id) {
+    return (
+      <div className="feed-page">
+        <div className="feed-content">
+          <div className="empty-state">
+            <h2>No group yet</h2>
+            <p>Join or create a group to see shared purchases.</p>
+          </div>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="feed-page">

@@ -8,7 +8,7 @@ import Login from "./Pages/LoginPage"
 import Purchase from "./Pages/PurchasePage"
 import Leaderboard from "./Pages/LeaderboardPage"
 import Profile from "./Pages/ProfilePage"
-import { fetchPurchases, voteOnPurchase } from "./lib/api"
+import { fetchPurchases, fetchUserProfile, voteOnPurchase } from "./lib/api"
 import { supabase } from "./lib/supabase"
 
 function ProtectedRoute({ user, children }) {
@@ -23,23 +23,26 @@ function AppLayout() {
   const location = useLocation()
   const [purchases, setPurchases] = useState([])
   const [user, setUser] = useState(null)
+  const [authUser, setAuthUser] = useState(null)
+  const [appUser, setAppUser] = useState(null)
   const [authLoading, setAuthLoading] = useState(true)
 
   const hideTopbar = location.pathname === "/" || location.pathname === "/profile"
   const hideBottombar = location.pathname === "/"
 
   const loadPurchases = async () => {
-    try {
-      const data = await fetchPurchases()
-      setPurchases(data)
-    } catch (error) {
-      console.error("Failed to load purchases:", error)
+    if (!appUser?.group_id) {
+      setPurchases([])
+      return
     }
+
+    const data = await fetchPurchases(appUser.group_id)
+    setPurchases(data)
   }
 
   useEffect(() => {
     loadPurchases()
-  }, [])
+  }, [appUser])
 
   useEffect(() => {
     const getSession = async () => {
@@ -64,6 +67,20 @@ function AppLayout() {
     }
   }, [])
 
+  useEffect(() => {
+    const loadAppUser = async () => {
+      if (!authUser) {
+        setAppUser(null)
+        return
+      }
+
+      const profile = await fetchUserProfile(authUser.id)
+      setAppUser(profile)
+    }
+
+    loadAppUser()
+  }, [authUser])
+
   const handleVote = async (purchaseId, voteType) => {
     try {
       await voteOnPurchase(purchaseId, voteType)
@@ -78,6 +95,21 @@ function AppLayout() {
     return <div>Loading...</div>
   }
 
+  const refreshAppUser = async (authUser = user) => {
+    if (!authUser) {
+      setAppUser(null)
+      return
+    }
+
+    try {
+      const profile = await fetchUserProfile(authUser.id)
+      setAppUser(profile)
+    } catch (error) {
+      console.error("Failed to load app user:", error)
+      setAppUser(null)
+    }
+  }
+
   return (
     <>
       {!hideTopbar && user && <Topbar user={user} />}
@@ -89,7 +121,7 @@ function AppLayout() {
           path="/home"
           element={
             <ProtectedRoute user={user}>
-              <Home user={user} purchases={purchases} onVote={handleVote} />
+              <Home user={user} appUser={appUser} purchases={purchases} onVote={handleVote} />
             </ProtectedRoute>
           }
         />
@@ -98,7 +130,7 @@ function AppLayout() {
           path="/purchase"
           element={
             <ProtectedRoute user={user}>
-              <Purchase user={user} onPurchaseCreated={loadPurchases} />
+              <Purchase user={user} appUser={appUser} onPurchaseCreated={loadPurchases} />
             </ProtectedRoute>
           }
         />
@@ -116,7 +148,7 @@ function AppLayout() {
           path="/profile"
           element={
             <ProtectedRoute user={user}>
-              <Profile user={user} />
+              <Profile user={user} appUser={appUser} refreshAppUser={refreshAppUser} />
             </ProtectedRoute>
           }
         />

@@ -4,8 +4,9 @@ import "./ProfilePage.css"
 import logo from "../assets/catonlylogo.webp"
 import defaultUserIcon from "../assets/defaultUserIcon.jpg"
 import { supabase } from "../lib/supabase"
+import { createGroup, joinGroup } from "../lib/api"
 
-export default function ProfilePage({ user }) {
+export default function ProfilePage({ user, appUser, refreshAppUser }) {
   const navigate = useNavigate()
 
   const [editName, setEditName] = useState("")
@@ -84,6 +85,40 @@ export default function ProfilePage({ user }) {
     navigate("/")
   }
 
+  const handleCreateGroup = async () => {
+    try {
+      const result = await createGroup({
+        name: newGroupName,
+        owner_user_id: user.id,
+      })
+
+      alert(`Group created! Join code: ${result.join_code}`)
+      setIsCreateModalOpen(false)
+      setNewGroupName("")
+      await refreshAppUser?.()
+    } catch (error) {
+      console.error(error)
+      alert("Could not create group.")
+    }
+  }
+
+  const handleJoinGroup = async () => {
+    try {
+      await joinGroup({
+        user_id: user.id,
+        join_code: joinCode,
+      })
+
+      alert("Joined group successfully!")
+      setIsModalOpen(false)
+      setJoinCode("")
+      await refreshAppUser?.()
+    } catch (error) {
+      console.error(error)
+      alert("Could not join group.")
+    }
+  }
+
   const displayName = editName || "No name yet"
   const displayUsername = editUsername || "username"
   const displayIcon = editIcon || defaultUserIcon
@@ -105,6 +140,7 @@ export default function ProfilePage({ user }) {
         <h1>{displayName}</h1>
         <p className="username">@{displayUsername}</p>
         <p className="points">Email: {editEmail}</p>
+        <p className="points">Group: {appUser?.group_id ? "Joined" : "No group yet"}</p>
       </div>
 
       <div className="edit-section">
@@ -175,9 +211,7 @@ export default function ProfilePage({ user }) {
                     value={joinCode}
                     onChange={(e) => setJoinCode(e.target.value)}
                   />
-                  <button onClick={() => alert(`Joining group with code: ${joinCode}`)}>
-                    Join
-                  </button>
+                  <button onClick={handleJoinGroup}>Join</button>
                 </div>
               </div>
             </div>
@@ -210,15 +244,7 @@ export default function ProfilePage({ user }) {
                 />
 
                 <div className="modal-buttons" style={{ marginTop: "15px" }}>
-                  <button
-                    onClick={() => {
-                      alert(`Creating group: ${newGroupName}`)
-                      setIsCreateModalOpen(false)
-                      setNewGroupName("")
-                    }}
-                  >
-                    Create
-                  </button>
+                  <button onClick={handleCreateGroup}>Create</button>
                 </div>
               </div>
             </div>

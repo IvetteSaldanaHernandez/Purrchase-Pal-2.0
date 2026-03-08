@@ -1,11 +1,11 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Query
 from services.db import purchases_collection
 
 router = APIRouter()
 
 @router.get("/leaderboard")
-def get_leaderboard():
-    purchases = list(purchases_collection.find())
+def get_leaderboard(group_id: str = Query(...)):
+    purchases = list(purchases_collection.find({"group_id": group_id}))
 
     scores = {}
 

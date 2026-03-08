@@ -1,4 +1,7 @@
 /* frontend/src/Pages/ProfilePage.css */
+.profile-page {
+  padding-bottom: 220px;
+}
 
 body {
   margin: 0;
@@ -93,6 +96,7 @@ body {
   gap: 15px;
   width: 100%;
   max-width: 400px;
+  padding-bottom: 90px;
 }
 
 .edit-section label {
