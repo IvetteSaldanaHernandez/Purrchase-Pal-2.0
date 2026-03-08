@@ -1,8 +1,9 @@
 import { useRef, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { createPurchase } from "../lib/api"
 import "./PurchasePage.css"
 
-export default function CreatePurchase() {
+export default function CreatePurchase({ onPurchaseCreated }) {
   const navigate = useNavigate()
   const fileInputRef = useRef(null)
 
@@ -45,15 +46,25 @@ export default function CreatePurchase() {
     setIsSubmitting(true)
 
     try {
-      console.log("Submitting purchase:", formData)
+        const payload = {
+        user_id: "ivette123",
+        title: formData.title,
+        amount: Number(formData.amount),
+        category: formData.category,
+        description: formData.description,
+        }
 
-      alert("Purchase submitted for review!")
-      navigate("/home")
+        await createPurchase(payload)
+
+        await onPurchaseCreated?.()
+
+        alert("Purchase submitted for review!")
+        navigate("/home")
     } catch (error) {
-      console.error(error)
-      alert("Something went wrong.")
+        console.error("Create purchase error:", error)
+        alert("Something went wrong while submitting the purchase.")
     } finally {
-      setIsSubmitting(false)
+        setIsSubmitting(false)
     }
   }
 

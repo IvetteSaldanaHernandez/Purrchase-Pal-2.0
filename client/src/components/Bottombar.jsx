@@ -2,9 +2,9 @@ import { NavLink } from "react-router-dom"
 export default function Bottombar() {
   return (
     <nav className="bottombar">
-      <NavLink to="/Home" className="nav-btn" aria-label="Home">⌂</NavLink>
-      <NavLink to="/Leaderboard" className="nav-btn" aria-label="Leaderboard">↗</NavLink>
-      <NavLink to="/Purchase" className="nav-btn" aria-label="Add Purchase">+</NavLink>
+      <NavLink to="/home" className="nav-btn" aria-label="Home">⌂</NavLink>
+      <NavLink to="/leaderboard" className="nav-btn" aria-label="Leaderboard">↗</NavLink>
+      <NavLink to="/purchase" className="nav-btn" aria-label="Add Purchase">+</NavLink>
     </nav>
   )
 }
